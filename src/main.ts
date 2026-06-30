@@ -13,6 +13,7 @@ async function bootstrap() {
 
   app.setGlobalPrefix('api/v1');
 
-  await app.listen(3005);
+  const port = Number(process.env.PORT) || 3005;
+  await app.listen(port, '0.0.0.0');
 }
 bootstrap();

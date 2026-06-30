@@ -9,7 +9,9 @@ import { CoreModule } from './core/core.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    MongooseModule.forRoot('mongodb://localhost:27017/simulator-soccer'),
+    MongooseModule.forRoot(
+      process.env.MONGO_URL || 'mongodb://localhost:27017/simulator-soccer',
+    ),
     TeamsModule,
     TournamentsModule,
     SimulationModule,
